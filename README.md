@@ -1,70 +1,79 @@
-# Buenos Networks
+# YETZCARDS
 
-## Funcionalidades:
+## Recursos Desenvolvidos:
 
-- Tela de Autenticação Login
+* Criei um translation para associar tradução com os niveis de cada jogador. 
 
-- Tela de Registrar de Usúarios
+| Nivel  | Descrição        |
+| -------| -----------------|
+| 1      | Iniciante        |
+| 2      | Intermediário    |
+| 3      | Avançado         |
+| 4      | Expert           |
+| 5      | Veterano         | 
 
-- Tela Listar Usúarios
+## Criação de jogadores podera ocorrer em massa dependendo da configuração de limite por time nas "*Configurações do Sorteio*":
 
-- E-mail de Notificação ao registrar um novo usúario pra disparar e testar a notificação usei o service (Mailtrap) você pode utilizar outros serviços pra testar (se quiser).
+*Configurações*
 
-- Niveis de permissões para Admin e Commom.
+* Opção de Balancear o Jogo.
 
-- Validações de todos os formularios.
+* Opção alterar limite de jogadores por time.
 
-- Ler Criar Atualizar Deletar *Usúarios*.
+| Validações  | Configuração              | Descrição
+| ------------| --------------------------|--------------
+| 1           | Limite por time (Menu)    | Deve existir algum limite diferente de 0 nas configurações
+| 6           | Balancear (Menu)          | Você consegue balancear os times no sorteio
+| 2           | Confirmação por jogador   | Deve existir confirmado os jogadores para cada time pra ocorrer o sorteio 
+| 3           | Time completo             | Deve existir pelo menos 2 times completos pra sortear
+| 4           | Goleiros                  | Deve existir pelo menos 2 goleiros nos times
+| 5           | Goleiros Para Cada Time   | Deve existir pelo menos 2 goleiros para cada time
+| 7           | Repetição                 | Não Deve existir goleiros ou jogadores repetidos no mesmo time
 
-- Notificações ao atualizar as informações pessoais e do outro usúario com o notifications push FCM.
+## Notificação por E-mail pra cada Usúario Admin criado:
 
-## Adicionais ao .env e configurações
+Pra teste utilizei o *Mailtrap* :
+
+```dosini
+https://mailtrap.io/register/signup?ref=header
+```
+
+## Adicione o nome do banco DB_DATABASE .env
 
 ```dosini
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=buenos_network
+DB_DATABASE=yetzcards
 DB_USERNAME=root
 DB_PASSWORD=
-
-MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-VITE_APP_NAME="${APP_NAME}"
-VITE_PUSHER_HOST="${PUSHER_HOST}"
-VITE_PUSHER_PORT="${PUSHER_PORT}"
-VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 ```
 
-## Próximos Passos (melhorias/alternativas)
+## Próximos Passos (Melhorias) -> Infraestrutura
 
-- Events -> Utilizar ouvintes para implementar regras adicionais ou a opção abaixo
+- Utilizar RDS para instânciar o Banco de dados.
 
-- Observer -> Observar os eventos em um determinado modelo ou varios modelos 
+- Utilizar grupo de segurança para VPC.
 
-- Test E2E -> Avalia o sistema como um todo desde da experiência do usúario a testes de integridade.
+## Próximos Passos (Melhorias/Futuras) -> Código
 
-- Forgot Password -> Implementar recurso de esqueci minha senha.
+- Policy -> pra gerenciar permissões a outros usúarios
 
-###  Frameworks
+- Desacoplar o SorteioService em Camadas, tornando mais (Modular,Escalável).
 
+###  Requisitos / Frameworks
+
+- PHP ^8.1
 - Laravel ^10.10
-- Axios
-- Jquuery
+- Composer
+- NVM
 
-### Solid (SRP/ISP)
+### Padrões Solid (SRP/ISP)
 
+- Controllers/Sortear -> Injeção de depêndencia / SRP
+- Controllers/Player -> Injeção de depêndencia / Service Layer
 - Services/AuthenticationService -> Single Responsiblity Principle
 - Requests -> Single Responsibility Principle, Interface Segregation Principle
-
-### Recursos
-
-- Javascript Vanilla FCM;
-- Notificações por Email;
-- Notificações Push;
-- Jobs Async;
-- Transpilação com Laravel Mix;
-- Relacionamento usando Models e Pivots.
 
 ## Instale os pacotes e dependências
 
