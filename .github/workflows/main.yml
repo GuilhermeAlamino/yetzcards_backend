@@ -64,3 +64,27 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           RUNNER_TEMP: ${{ runner.temp }}
+
+      # Limpar as visualizações do Laravel Artisan
+      - name: "Limpar Visualizações do Laravel Artisan"
+        run: |
+          ssh -o StrictHostKeyChecking=no -i $RUNNER_TEMP/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan view:clear"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      # Limpar o cache do Laravel Artisan
+      - name: "Limpar Cache do Laravel Artisan"
+        run: |
+          ssh -o StrictHostKeyChecking=no -i $RUNNER_TEMP/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan cache:clear"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          RUNNER_TEMP: ${{ runner.temp }}
+
+      # Limpar as rotas do Laravel Artisan
+      - name: "Limpar Rotas do Laravel Artisan"
+        run: |
+          ssh -o StrictHostKeyChecking=no -i $RUNNER_TEMP/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan route:clear"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          RUNNER_TEMP: ${{ runner.temp }}
