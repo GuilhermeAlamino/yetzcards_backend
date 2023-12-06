@@ -4,9 +4,9 @@ name: "Deploy YetzCard Aws"
 on:
   # Evento
   push:
-    # Branches afetadas (neste caso, apenas a "sitebeta")
+    # Branches afetadas (neste caso, apenas a "main")
     branches:
-      - sitebeta
+      - main
 
   workflow_dispatch:
     inputs:
