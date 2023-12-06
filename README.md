@@ -1,6 +1,6 @@
 # YETZCARDS
 
-## Recursos Desenvolvidos:
+### Recursos Desenvolvidos:
 
 * Criei um translation para associar tradução com os niveis de cada jogador. 
 
@@ -12,13 +12,13 @@
 | 4      | Expert           |
 | 5      | Veterano         | 
 
-## Criação de jogadores podera ocorrer em massa dependendo da configuração de limite por time nas "*Configurações do Sorteio*":
+### Menu de Configurações do usúario:
 
-*Configurações*
+* Criei Opção de Balancear o Jogo.
 
-* Opção de Balancear o Jogo.
+* Criei Opção de alterar limite de jogadores por time.
 
-* Opção alterar limite de jogadores por time.
+### Validações de Sorteio:
 
 | Validações  | Configuração              | Descrição
 | ------------| --------------------------|--------------
@@ -30,7 +30,7 @@
 | 5           | Goleiros Para Cada Time   | Deve existir pelo menos 2 goleiros para cada time
 | 7           | Repetição                 | Não Deve existir goleiros ou jogadores repetidos no mesmo time
 
-## Notificação por E-mail pra cada Usúario Admin criado:
+### Notificação por E-mail pra cada Usúario Admin criado:
 
 Pra teste utilizei o *Mailtrap* :
 
@@ -38,7 +38,7 @@ Pra teste utilizei o *Mailtrap* :
 https://mailtrap.io/register/signup?ref=header
 ```
 
-## Adicione o nome do banco DB_DATABASE .env
+### Configure o .env
 
 ```dosini
 DB_CONNECTION=mysql
@@ -49,13 +49,13 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-## Próximos Passos (Melhorias) -> Infraestrutura
+### Próximos Passos (Melhorias) -> Infraestrutura
 
 - Utilizar RDS para instânciar o Banco de dados.
 
 - Utilizar grupo de segurança para VPC.
 
-## Próximos Passos (Melhorias/Futuras) -> Código
+### Próximos Passos (Melhorias/Futuras) -> Código
 
 - Policy -> pra gerenciar permissões a outros usúarios
 
@@ -75,26 +75,26 @@ DB_PASSWORD=
 - Services/AuthenticationService -> Single Responsiblity Principle
 - Requests -> Single Responsibility Principle, Interface Segregation Principle
 
-## Instale os pacotes e dependências
+### Instale os pacotes e dependências
 
 `composer install`
 
-## Instale os pacotes e dependências
+### Instale os pacotes e dependências
 
 `npm install`
 
-## Compílar os assets
+### Compílar os assets
 
 `npm run dev`
 
-## Gerar key da aplicação
+### Gerar key da aplicação
 
 `php artisan key:generate`
 
-## Rodar migrações do banco (ORM)
+### Rodar migrações do banco (ORM)
 
 `php artisan migrate --seed`
 
-## Rodar o projeto
+### Rodar o projeto
 
 `php artisan serve --port=8001`
