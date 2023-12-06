@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0
 
       # Transferência
-      - name: Copy files with SSH
+      - name: Subindo Arquivos
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{secrets.EC2_SSH_KEY}}
@@ -56,6 +56,13 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
 
+      # Executar Composer Install na máquina remota
+      - name: "Executar Composer Install na máquina remota"
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && composer install"
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+
       # Limpar o cache do Laravel Artisan
       - name: "Limpar Cache do Laravel Artisan"
         run: |
@@ -66,27 +73,20 @@ jobs:
       # Limpar as rotas do Laravel Artisan
       - name: "Limpar Rotas do Laravel Artisan"
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "sitebeta@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan route:clear"
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan route:clear"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
 
       # Limpar as visualizações do Laravel Artisan
       - name: "Limpar Visualizações do Laravel Artisan"
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "sitebeta@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan view:clear"
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-
-      # Executar Composer Install na máquina remota
-      - name: "Executar Composer Install na máquina remota"
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "sitebeta@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php /opt/cpanel/composer/bin/composer install"
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && php artisan view:clear"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
 
       # Executar Artisan Migrate na máquina remota
       - name: "Executar Artisan Migrate na máquina remota"
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "sitebeta@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && echo 'yes' | php artisan migrate --seed"
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa "ubuntu@${{ secrets.SSH_HOST }}" "cd /var/www/yetzcards_backend/ && echo 'yes' | php artisan migrate --seed"
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
