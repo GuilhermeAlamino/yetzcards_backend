@@ -34,6 +34,11 @@ Route::prefix('login')->name('login.')->group(function () {
 Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('index');
 
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'show'])->name('show');
+        Route::put('/edit', [ProfileController::class, 'update'])->name('update');
+    });
+
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('/show/{id}', [UserController::class, 'show'])->name('show');
@@ -58,8 +63,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(func
         Route::get('/create', [PlayerController::class, 'create'])->name('create');
         Route::post('/store', [PlayerController::class, 'store'])->name('store');
     });
-    
-    Route::prefix('sortear')->name('sortear.')->group(function () {      
+
+    Route::prefix('sortear')->name('sortear.')->group(function () {
         Route::post('/store', [SortearController::class, 'sortear'])->name('sortear');
     });
 });

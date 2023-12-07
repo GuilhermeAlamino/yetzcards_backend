@@ -10,12 +10,23 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Usuários</h1>
+        <div class="row">
+            <div class="col-6">
+                <h1 class="h3 mb-2 text-gray-800">Jogador</h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <ol class="breadcrumb bg-transparent float-sm-right">
+                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/player">Gerenciar Jogadores</a></li>
+                    <li class="breadcrumb-item active">Jogador</li>
+                </ol>
+            </div>
+        </div>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Usúario</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Jogador</h6>
             </div>
             <div class="card-body">
                 <form>

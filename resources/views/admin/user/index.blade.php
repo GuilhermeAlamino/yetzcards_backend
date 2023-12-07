@@ -10,7 +10,18 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Gerenciar Usúarios</h1>
+        <div class="row">
+            <div class="col-6">
+                <h1 class="h3 mb-2 text-gray-800">Gerenciar Usúarios</h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <ol class="breadcrumb bg-transparent float-sm-right">
+                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/user">Usúarios</a></li>
+                    <li class="breadcrumb-item active">Gerenciar Usúarios</li>
+                </ol>
+            </div>
+        </div>
         @if (session('success'))
             <div class=" mt-3 alert alert-danger">
                 {{ session('success') }}

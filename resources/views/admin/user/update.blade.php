@@ -10,8 +10,19 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Atualizar Usuários</h1>
-
+        <div class="row">
+            <div class="col-6">
+                <h1 class="h3 mb-2 text-gray-800">Atualizar Usuários</h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <ol class="breadcrumb bg-transparent float-sm-right">
+                    <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/user">Usúarios</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/user">Gerenciar Usúarios</a></li>
+                    <li class="breadcrumb-item active">Atualizar Usuários</li>
+                </ol>
+            </div>
+        </div>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
