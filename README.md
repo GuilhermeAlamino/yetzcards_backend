@@ -98,3 +98,13 @@ DB_PASSWORD=
 ### Rodar o projeto
 
 `php artisan serve --port=8001`
+
+### Acesso do projeto
+
+`
+E-mail : root@root.com
+Senha: password`
+
+### URL AWS
+
+`http://34.228.17.220/login`
