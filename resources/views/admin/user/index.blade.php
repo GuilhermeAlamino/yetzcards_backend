@@ -22,6 +22,12 @@
                 </ol>
             </div>
         </div>
+        @if (session('error'))
+            <div class=" mt-3 alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        
         @if (session('success'))
             <div class=" mt-3 alert alert-danger">
                 {{ session('success') }}

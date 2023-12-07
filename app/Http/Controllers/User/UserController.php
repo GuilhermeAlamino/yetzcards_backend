@@ -73,10 +73,14 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $user = User::find($id);
+        $userToDelete = User::find($id);
 
-        $user->delete();
+        if ($userToDelete->email === 'root@root.com') {
+            return redirect()->route('dashboard.user.index')->with('error', 'Não é permitido excluir o usuário "root@root.com"');
+        }
 
-        return redirect()->route('dashboard.user.index', $id)->with('success-delete', 'Usúario deletado com sucesso!');
+        $userToDelete->delete();
+
+        return redirect()->route('dashboard.user.index')->with('success-delete', 'Usuário deletado com sucesso!');
     }
 }
