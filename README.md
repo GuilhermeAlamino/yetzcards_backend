@@ -27,7 +27,7 @@
 | 2           | Confirmação por jogador   | Deve existir confirmado os jogadores para cada time pra ocorrer o sorteio 
 | 3           | Time completo             | Deve existir pelo menos 2 times completos pra sortear
 | 4           | Goleiros                  | Deve existir pelo menos 2 goleiros nos times
-| 5           | Goleiros Para Cada Time   | Deve existir pelo menos 2 goleiros para cada time
+| 5           | Goleiros Para Cada Time   | Deve existir pelo menos 1 goleiros para cada time
 | 7           | Repetição                 | Não Deve existir goleiros ou jogadores repetidos no mesmo time
 
 ### Notificação por E-mail pra cada Usúario Admin criado:
